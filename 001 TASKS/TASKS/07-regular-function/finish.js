@@ -8,3 +8,9 @@
  *
  * 4. Вызовите функцию
  */
+
+function myFunction() {
+    console.log('Эдуард')
+}
+
+myFunction()

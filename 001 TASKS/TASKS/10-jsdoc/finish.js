@@ -12,3 +12,20 @@
  *
  * 4. Вызовите функцию
  */
+
+
+let a = 1
+
+let b = 5
+
+/**
+ * Возвращает разницу двух чисел
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number} Разница чисел
+ */
+function diff(a, b) {
+    return b-a
+}
+
+diff(5, 7)
