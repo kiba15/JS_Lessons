@@ -18,6 +18,6 @@ const myFun = () => {
 
 console.log(myFun())
 
-const myFun1 = () => 'Hello world 2'
+const myFun1 = myVar => 'Hello world ' + myVar
 
-console.log(myFun1())
+console.log(myFun1('dfgdfgdf'))
