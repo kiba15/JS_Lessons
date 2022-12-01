@@ -12,3 +12,18 @@
  *
  * 5. Выведите в консоль значение второй переменной
  */
+
+
+const my = 'edward'
+
+console.log(typeof my)
+console.log(my instanceof String)
+
+const myUpperCase = my.toUpperCase()
+
+console.log(myUpperCase)
+
+ const myString = new String('Bogdan')
+ console.log(myString instanceof String)
+ console.log(typeof myString)
+ console.log(myString.toUpperCase())
