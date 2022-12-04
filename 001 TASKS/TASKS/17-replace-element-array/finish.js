@@ -8,3 +8,12 @@
  *
  * 4. Выведите в консоль измененный массив
  */
+
+ const myArray = [true, 12, 'edward']
+
+ console.log(myArray)
+ 
+ myArray[1] = 22
+
+ console.log(myArray)
+ 
