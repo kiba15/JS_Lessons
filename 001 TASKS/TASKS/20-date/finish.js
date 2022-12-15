@@ -4,3 +4,9 @@
  *
  * 2. Выведите значение в консоль
  */
+
+const myDate = new Date()
+
+const myDateMs = myDate.getFullYear()
+
+console.log(myDateMs)

@@ -6,3 +6,9 @@
  *
  * 3. Выведите в консоль длину результирующего массива
  */
+
+ const myArray = [1, 2, 3, 4, 5]
+ myArray.push('edward')
+ myArray.push(false)
+
+ console.log(myArray.length)

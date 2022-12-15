@@ -5,9 +5,10 @@
  * 2. Что будет, если отключить строгий режим?
  */
 
-'use strict'
+// 'use strict'
 
 function myFunction() {
+  // const a
   a = 2
   return a
 }

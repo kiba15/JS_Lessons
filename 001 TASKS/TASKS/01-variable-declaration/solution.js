@@ -11,3 +11,22 @@
 const myCountry = 'Ukraine'
 
 console.log(myCountry)
+
+
+let reverse = (text) => {
+
+   let result = ''
+   let i = 0
+
+   while (i < text.length) {
+    
+    result = `${text[i]}${result}`
+
+    i += 1
+   }
+   
+   return result
+
+}
+
+console.log(reverse('Edward'))

@@ -16,4 +16,8 @@
  myArray[1] = 22
 
  console.log(myArray)
+
+ myArray.push(100)
+ console.log(myArray)
+
  

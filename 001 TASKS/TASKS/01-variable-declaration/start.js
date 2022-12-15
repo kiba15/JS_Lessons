@@ -9,6 +9,14 @@
  */
 
 
+// ЭКРАНИРУЮЩИЕ СИМВОЛЫ
+// BEGIN (write your solution here)
+console.log('- Did Joffrey agree?\n- He did. He also said "I love using \\n".');
+// END
+
+
+// ИНТЕРПОЛЯЦИЯ. ОБРАТНЫЕ КАВЫЧКИ НАЗЫВАЮТСЯ БЕКТИКИ
+
 const button = {
     width: 200,
     height: 100,
@@ -204,3 +212,141 @@ let str = 'edward'
 for (Element of str) {
     console.log(Element)
 }
+
+// КЛАССЫ
+
+class Comment {
+    constructor(text) {
+       this.text = text
+       this.votesQty = 0
+    }
+
+    upVote() {
+       this.votesQty += 1
+    }
+    // СТАТИЧЕСКИЕ МЕТОДЫ КЛАССА
+    static sayHello() {
+        console.log('Helo')
+    }
+}
+
+const myClass = new Comment('test')
+
+console.log(myClass)
+console.log(myClass.text)
+myClass.upVote()
+myClass.upVote()
+console.log(myClass.votesQty)
+console.log(myClass instanceof Comment)
+
+console.log(myClass.hasOwnProperty('text'))
+console.log(myClass.hasOwnProperty('3333'))
+
+// СТАТИЧЕСКИЕ МЕТОДЫ КЛАССА
+Comment.sayHello()
+
+// РАСШИРЕНИЕ КЛАССА
+class extendedComment extends Comment {
+    superComment(inValue) {
+        return '!!!!!!!!!' + inValue.toUpperCase() + '!!!!!!!!!'
+    }
+}
+const myExt = new extendedComment()
+console.log(myExt.superComment('edward'))
+myExt.upVote()
+console.log(myExt.votesQty)
+
+// РАСШИРЕНИЕ КЛАССА МАССИВА + ФУНКЦИЯ REDUCE
+class extendedArray extends Array {
+    sum()
+        {
+           return this.reduce( (temp, element, index, mas) => {
+               console.log('промежут- ' + temp)
+               console.log('element - ' + element)
+               console.log('index- ' + index)
+               return temp + element
+           } , 1000)
+        } 
+}
+    
+const myArrayFromClass = new extendedArray(100, 200, 300)
+console.log(' class: ')
+const sumClass = myArrayFromClass.sum(myArrayFromClass)
+console.log(sumClass)
+console.log('Длина массива ' + myArrayFromClass.length + ' элемента')
+
+// ПРОМИСЫ
+// вновь созданный промис находится в состоянии pending
+  
+// СНАЧАЛА FETCH
+   fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response_ => response_.json()) // response_.json() - это тоже ПРОМИС!
+  .then(json_ => console.log(json_))   // Тут нам вернулись данные из промиса response_.json() 
+  .catch(error_ => console.error(error_))
+  console.log('working 1..')
+
+  // ПРОМИС МОЙ
+
+  // функция промис
+  const getData = (url) => {
+    return new Promise((resolve, reject) => {
+       fetch(url)
+        .then(response => response.json())
+        .then(json_ => resolve(json_))
+        .catch(error => reject(error))
+    }
+ )}
+
+ getData('https://jsonplaceholder.typicode.com/todos/2')
+     .then(data_ => console.log(data_))
+     .catch(error_ => console.log(error_.message))
+
+
+// АСИНХРОННЫЕ ФУНКЦИИ
+
+// ВЫПОЛНЕН СРАЗУ
+const myAsyncFn = async () => {
+    return 'assssync result *************'
+}
+myAsyncFn()
+.then(value => console.log(value))
+
+// С ОШИБКОЙ
+const myAsyncFn_Error = async () => {
+    throw new Error('errrorrrrrr')
+}
+myAsyncFn_Error()
+.then(value => console.log(value))
+.catch(error => console.log(error.message))
+
+// AWAIT - ожидание результата другого промиса (промисов)
+const timerPromise = () => new Promise(
+    (resolve, reject) => setTimeout(() => resolve(), 5000)
+)
+const timerFunc = async () => {
+    startTime = performance.now()
+    await timerPromise()
+    endTime = performance.now()
+    console.log(`Выполнен промис за ${endTime - startTime}`)
+}
+timerFunc()
+
+// ПЕРЕПИСЫВАЕМ ПРОМИС НА AWAIT
+const getDataNew = async (url) => {  // обработка ощибки происходит автоматически!
+    const res  = await fetch(url)
+    const json = await res.json()    
+    console.log('ПЕРЕПИСЫВАЕМ ПРОМИС НА AWAIT')
+    return json
+}
+
+const tempFunction = async (url) => {
+    try {
+        const data_new = await getDataNew(url)  // в NODE не работает, хочет чтобы в функции было
+        console.log(data_new) }
+        catch (error) {
+            console.log(error.message)
+    }   
+}
+
+const url_new = 'https://jsonplaceholder.typicode.com/todos/5'
+tempFunction(url_new)

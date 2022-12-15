@@ -10,20 +10,22 @@
  */
 
 const myObject = {
-    name: 'Alex',
+    name: 'Edward',
     surname: 'Kovalchuk',
     favoriteNumber: 77,
     age: 8,
     city: 'Minsk',
 }
 
-console.log(`My name is ${myObject.name} ${myObject.surname}  and my favorite number is ${myObject.favoriteNumber}`)
+const {name, surname, favoriteNumber: favNumber, age, city} = myObject
 
-let myVar
+console.log(`My name is ${name} ${surname}  and my favorite number is ${favNumber}`)
 
-myVar = myObject.favoriteNumber
-console.log(myVar)
-myVar = 7
 
-console.log(myVar)
-console.log(myObject.favoriteNumber)
+// ВАРИАНТЫ КОПИРОВАНИЯ ОБЪЕКТОВ
+// newObject = {...myObject}
+newObject = Object.assign({}, myObject)
+newObject.name = 'Alex'
+
+console.log(myObject.name)
+console.log(newObject.name)

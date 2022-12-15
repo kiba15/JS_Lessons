@@ -8,8 +8,16 @@
  */
 
 
-const myArray = [true, 12, 'edward']
+const myArray = [11, 12, 13]
 
 console.log(myArray[0])
 
 console.log(myArray.length)
+
+
+myArray.forEach(el => console.log(el))
+
+newArray = myArray.map(el => {
+    el = el * 10
+    console.log(el)
+})

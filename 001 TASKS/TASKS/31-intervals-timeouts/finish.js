@@ -12,3 +12,13 @@
  * "Сообщение номер 4"
  * "Сообщение номер 5"
  */
+
+let counter = 1
+
+const mess = setInterval(() => {
+        console.log(`Сообщение номер ${counter}`)
+        counter ++
+    }, 2000);
+
+setTimeout(() =>{clearInterval(mess)}, 11000)
+

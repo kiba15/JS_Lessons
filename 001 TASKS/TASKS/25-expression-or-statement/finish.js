@@ -8,21 +8,28 @@
 
 15
 
+// statement
 const myObject = {
   x: 10,
   y: true,
 }
 
+// statement
 myObject.z = 'abc'
 
+// expression statement
 delete myObject.x
 
+// statement
 let newVariable
 
+// expression statement
 newVariable = 30 + 5
 
+// expression statement
 console.log(newVariable)
 
+// statement
 if (newVariable > 10) {
   console.log(`${newVariable} больше 10`)
 }
