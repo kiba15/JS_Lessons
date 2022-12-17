@@ -1,0 +1,4 @@
+const sum = (...args) => args.reduce((s, num) => s + num, 0);
+
+const myArray = [1, 45, 33, 78, 100]
+console.log(sum(...myArray))
